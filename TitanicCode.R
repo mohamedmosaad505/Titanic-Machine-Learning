@@ -46,7 +46,7 @@ titanic_data <- titanic_data %>%
 
 table(titanic_data$Sex , titanic_data$Surname)
 
-#dividing them to 4 factors only and putting the rare values in one value named it other 
+#dividing them into 4 factors only and putting the rare values in one value named it other 
 q <- c('Miss','Master','Mrs','Mr')
 titanic_data$Surname[!(titanic_data$Surname %in% q)] <- 'other'
 #making new variable contains the values of the family size 
@@ -71,8 +71,8 @@ titanic_imputed <-kNN(titanic_data , variable = c("Fare","Age","Cabin"), k=5)
 str(titanic_imputed)
 titanic_imputed <- subset(titanic_imputed , select = PassengerId:FamilySize )
 str(titanic_imputed)
-#bulding our model 
-#first split the data again 
+#bulding our random forest model 
+#split the data again 
 train <- titanic_imputed[1:891,]
 test <- titanic_imputed[892:1309,]
 
