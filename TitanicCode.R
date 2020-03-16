@@ -40,7 +40,7 @@ median(titanic_data$Age , na.rm = TRUE)
 
 ggplot(train , aes(x = Age , fill = Survived))+
  geom_histogram()
-#Ading new variable contains the surname 
+#Adding new variable contains the surname 
 titanic_data <- titanic_data %>%
   mutate(Surname= str_split(titanic_data$Name , boundary("word"), simplify = T)[,2]) 
 
